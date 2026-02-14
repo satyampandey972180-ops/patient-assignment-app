@@ -13,18 +13,49 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.patientassignmentapp",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to the camera to capture medical images.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select medical images."
+      }
     },
     "android": {
+      "package": "com.patientassignmentapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "softwareKeyboardLayoutMode": "resize",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to capture medical images."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos to select medical images."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "36073aab-f2a2-42d1-a652-7fdf6aa9ee43"
+      }
     }
   }
 }
